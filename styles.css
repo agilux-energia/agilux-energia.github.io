@@ -123,7 +123,7 @@ body {
 }
 
 .nav__logo-img {
-    height: 11rem;
+    height: 100px;
     width: auto;
 }
 
@@ -747,7 +747,7 @@ body {
 
 .form__group {
     position: relative;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .form__input {
@@ -765,60 +765,6 @@ body {
 .form__input:focus {
     outline: none;
     border-color: #10B981;
-}
-
-/* Validation states */
-.form__input.valid {
-    border-color: #10b981;
-    background-color: #f0fdf4;
-}
-
-.form__input.invalid {
-    border-color: #ef4444;
-    background-color: #fef2f2;
-}
-
-.form__icon {
-    position: absolute;
-    right: 1rem;
-    top: 1rem;
-    font-size: 1.25rem;
-    font-weight: bold;
-    pointer-events: none;
-    transition: all 0.3s ease;
-    opacity: 0;
-}
-
-.form__input.valid ~ .form__icon,
-.form__input.invalid ~ .form__icon {
-    opacity: 1;
-}
-
-.form__error {
-    display: block;
-    color: #ef4444;
-    font-size: 0.875rem;
-    margin-top: 0.25rem;
-    margin-left: 0.25rem;
-    min-height: 0;
-    height: 0;
-    overflow: hidden;
-    transition: height 0.3s ease;
-}
-
-.form__input.invalid ~ .form__error:not(:empty) {
-    height: auto;
-    min-height: 1.25rem;
-    margin-bottom: 0.5rem;
-}
-
-.form__counter {
-    position: absolute;
-    right: 1rem;
-    bottom: 0.5rem;
-    font-size: 0.75rem;
-    color: #6b7280;
-    pointer-events: none;
 }
 
 .form__label {
@@ -840,18 +786,9 @@ body {
     color: #10B981;
 }
 
-.form__input.valid ~ .form__label {
-    color: #10b981;
-}
-
-.form__input.invalid ~ .form__label {
-    color: #ef4444;
-}
-
 .form__textarea {
     resize: vertical;
     min-height: 120px;
-    padding-bottom: 2rem;
 }
 
 .form__message {
@@ -863,33 +800,16 @@ body {
     display: none;
 }
 
-.form__message--success {
+.form__message.success {
     display: block;
     background-color: #d1fae5;
     color: #065f46;
-    border: 1px solid #10b981;
 }
 
-.form__message--error {
+.form__message.error {
     display: block;
     background-color: #fee2e2;
     color: #991b1b;
-    border: 1px solid #ef4444;
-}
-
-/* Button disabled state */
-.button:disabled,
-.button--primary:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-}
-
-.button:disabled:hover,
-.button--primary:disabled:hover {
-    transform: none;
-    box-shadow: none;
 }
 
 /* ===== FOOTER ===== */
