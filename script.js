@@ -621,7 +621,7 @@ animateTimeline();
         
         // IMPORTANTE: Substitua esta URL pela URL do seu Google Apps Script
         // Instruções em: /server/CONFIG.md
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxJlmfwX3Qc_HJFuLiHPzgxbVWetuPWzq8HPtMfZdLa45UsuBfdkX2kSXOQlnSBopqJvw/exec';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwRdPHH41lCgVS2LPHFHXwvvRRZRbZpf0uLmY4u4pVG3M0-DgfPhWZRb10Jf2yUDXWu_g/exec';
         
         try {
             const response = await fetch(scriptURL, {
