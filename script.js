@@ -619,7 +619,9 @@ animateTimeline();
         submitBtn.textContent = 'Enviando...';
         formMessage.textContent = '';
         
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbw4Aqh-_3YmImViQvtkg4Iz3I8cwcM3Cqj65M0jtBq9hsDGh8g_lagd68jnM-ChvHqaUA/exec';
+        // IMPORTANTE: Substitua esta URL pela URL do seu Google Apps Script
+        // Instruções em: /server/CONFIG.md
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxJlmfwX3Qc_HJFuLiHPzgxbVWetuPWzq8HPtMfZdLa45UsuBfdkX2kSXOQlnSBopqJvw/exec';
         
         try {
             const response = await fetch(scriptURL, {
@@ -689,5 +691,63 @@ animateTimeline();
     }
 })();
 
-console.log('☀️ Agilux Energia Solar - Website carregado com sucesso!');
+// ===== FAQ ACCORDION =====
+document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.faq__item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq__question');
+        
+        question.addEventListener('click', () => {
+            // Close all other items
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            
+            // Toggle current item
+            item.classList.toggle('active');
+        });
+    });
+});
 
+// ===== FOOTER SERVICE LINKS - PRE-FILL FORM =====
+document.addEventListener('DOMContentLoaded', function() {
+    const serviceLinks = document.querySelectorAll('.footer__service-link');
+    const messageField = document.getElementById('message');
+    
+    // Mensagens pré-definidas para cada serviço
+    const serviceMessages = {
+        'residencial': 'Olá! Gostaria de receber um orçamento para instalação de sistema de energia solar residencial.',
+        'comercial': 'Olá! Gostaria de receber um orçamento para instalação de sistema de energia solar comercial/industrial.',
+        'instalacao': 'Olá! Gostaria de saber mais sobre os serviços de projeto e instalação de energia solar.',
+        'manutencao': 'Olá! Gostaria de solicitar um orçamento para manutenção de sistema de energia solar.'
+    };
+    
+    serviceLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const service = this.getAttribute('data-service');
+            
+            // Preencher o campo de mensagem
+            if (messageField && serviceMessages[service]) {
+                // Pequeno delay para garantir que a página rolou até o formulário
+                setTimeout(() => {
+                    messageField.value = serviceMessages[service];
+                    messageField.focus();
+                    
+                    // Atualizar o contador de caracteres
+                    const counter = document.getElementById('message-counter');
+                    if (counter) {
+                        counter.textContent = `${messageField.value.length}/500`;
+                    }
+                    
+                    // Trigger validation se necessário
+                    messageField.dispatchEvent(new Event('input'));
+                }, 300);
+            }
+        });
+    });
+});
+
+console.log('☀️ Agilux Energia Solar - Website carregado com sucesso!');
