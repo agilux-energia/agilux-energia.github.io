@@ -632,6 +632,11 @@ animateTimeline();
             const result = await response.json();
             
             if (result.result === 'success') {
+                // Registrar conversão do Google Ads
+                if (typeof gtag_report_conversion_form === 'function') {
+                    gtag_report_conversion_form();
+                }
+                
                 showFormMessage('✓ Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success');
                 form.reset();
                 phoneMask.value = '';
